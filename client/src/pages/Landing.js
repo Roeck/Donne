@@ -18,6 +18,9 @@ const Landing = () => {
           <p>
             App description
           </p>
+          <button className='btn btn-hero'>
+              Login/Register
+          </button>
         </div>
         <img src={main} alt='job hunt' className='img main-img' />
       </div>
