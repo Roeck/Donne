@@ -17,8 +17,9 @@ const Wrapper = styled.main`
   }
   h1 {
     font-weight: 700;
+    color: var(--primary-100);
     span {
-      color: var(--primary-500);
+      color: var(--primary-50);
     }
   }
   p {

@@ -11,7 +11,14 @@ const Wrapper = styled.section`
 
   .form {
     max-width: 400px;
-    border-top: 5px solid var(--primary-500);
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    color: var(--primary-50);
+    background: #0f0e136e;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   h3 {
@@ -31,9 +38,11 @@ const Wrapper = styled.section`
   .member-btn {
     background: transparent;
     border: transparent;
-    color: var(--primary-500);
+    color: var(--primary-100);
+    /* color: white; */
     cursor: pointer;
     letter-spacing: var(--letterSpacing);
+    text-decoration: underline;
   }
 `
 export default Wrapper
