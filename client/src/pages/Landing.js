@@ -14,7 +14,7 @@ const Landing = () => {
         {/* info */}
         <div className='info'>
           <h1>
-            Job <span>Tracker</span>
+          <span>Donne</span>, your Job Tracker
           </h1>
           <p>
             App description
