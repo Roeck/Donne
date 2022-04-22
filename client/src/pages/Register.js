@@ -37,7 +37,7 @@ const Register = () => {
         <form className='form' onSubmit={onSubmit}>
             <Logo />
             <h3>{values.isMember ? 'LOGIN' : 'REGISTER'}</h3>
-            {showAlert && <Alert />}
+            
             {/* name input */}
             {!values.isMember && (
             <FormRow
@@ -64,6 +64,8 @@ const Register = () => {
             <button type='submit' className='btn btn-block'>
                 SUBMIT
             </button>
+            <br />
+            {showAlert && <Alert />}
             <p>
                 {values.isMember ? 'Not a member?' : 'Already a member?'}
                 <button type='button' onClick={toggleMember} className='member-btn'>
