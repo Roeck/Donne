@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Logo, FormRow } from '../components'
 import Wrapper from '../assets/wrappers/RegisterPage'
+import { useAppContext } from '../contexts/appContext'
 
 const initialState = {
     name: '',
@@ -11,6 +12,8 @@ const initialState = {
 
 const Register = () => {
   const [values, setValues] = useState(initialState)
+
+  const isLoading = useAppContext()
 
   const toggleMember = () => {
       setValues({...values, isMember: !values.isMember})
