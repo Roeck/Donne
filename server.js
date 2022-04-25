@@ -18,9 +18,13 @@ import notFoundMiddleware from './middleware/not-found.js'
 import errorHandlerMiddleware from './middleware/error-handler.js'
 
 app.use(express.json())
-console.log('server running')
+
 app.get('/', (req, res) => {
-    res.send('Welcome!')
+    res.json({ msg: 'Welcome!' })
+})
+
+app.get('/api/v1', (req, res) => {
+    res.json({ msg: 'API' })
 })
 
 app.use('/api/v1/auth', authRouter)
