@@ -1,10 +1,15 @@
-import React from 'react'
+import { Outlet, Link } from 'react-router-dom'
 
 const SharedLayout = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <nav>
+        <Link to='add-job'>Add Job</Link>
+        <Link to='all-jobs'>All Jobs</Link>
+      </nav>
+      <Outlet />
+    </>
+
   )
 }
 
