@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.nav`
+color: white;
+  background: #0f0e136e;
   height: var(--nav-height);
   display: flex;
   align-items: center;
@@ -26,7 +28,6 @@ const Wrapper = styled.nav`
     display: flex;
     align-items: center;
   }
-  background: var(--white);
   .btn-container {
     position: relative;
   }

@@ -7,7 +7,6 @@ const Wrapper = styled.aside`
   .sidebar-container {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,11 +15,12 @@ const Wrapper = styled.aside`
     transition: var(--transition);
   }
   .show-sidebar {
+    
     z-index: 99;
     opacity: 1;
   }
   .content {
-    background: var(--white);
+    background: #000000b3;
     width: var(--fluid-width);
     height: 95vh;
     border-radius: var(--borderRadius);
@@ -44,17 +44,19 @@ const Wrapper = styled.aside`
     padding-top: 2rem;
     display: flex;
     flex-direction: column;
+    
   }
   .nav-link {
     display: flex;
     align-items: center;
-    color: var(--grey-500);
+    color: var(--white);
     padding: 1rem 0;
     text-transform: capitalize;
     transition: var(--transition);
+    text-decoration: none;
   }
   .nav-link:hover {
-    color: var(--grey-900);
+    color: var(--grey-500);
   }
   .nav-link:hover .icon {
     color: var(--primary-500);
@@ -67,7 +69,7 @@ const Wrapper = styled.aside`
     transition: var(--transition);
   }
   .active {
-    color: var(--grey-900);
+    color: var(--grey-200);
   }
   .active .icon {
     color: var(--primary-500);
