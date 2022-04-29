@@ -11,10 +11,10 @@ import {
     LOGIN_USER_SUCCESS,
     LOGIN_USER_ERROR,
     TOGGLE_SIDEBAR,
-    LOGOUT_USER,
-    UPDATE_USER_BEGIN,
-    UPDATE_USER_SUCCESS,
-    UPDATE_USER_ERROR,
+    LOGOUT_USER
+    // UPDATE_USER_BEGIN,
+    // UPDATE_USER_SUCCESS,
+    // UPDATE_USER_ERROR,
  } from './actions'
 
 import reducer from './reducer'
@@ -39,14 +39,36 @@ const AppContext = React.createContext()
 
 const AppProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, initialState)
-
-    // axios.defaults.headers.common['Authorization'] = `Bearer ${state.token}`
+    
+    // Axios 
     const authFetch = axios.create({
-        baseURL: '/api/v1',
-        headers: {
-            Authorization: `Bearer ${state.token}`
-        },
+        baseURL: '/api/v1'
     })
+
+    // Request
+    authFetch.interceptors.request.use(
+        (config) => {
+          config.headers.common['Authorization'] = `Bearer ${state.token}`
+          return config
+        },
+        (error) => {
+          return Promise.reject(error)
+        }
+    )
+    
+    // Response
+    authFetch.interceptors.response.use(
+        (response) => {
+            return response
+        },
+        (error) => {
+            // console.log(error.response)
+            if (error.response.status === 401) {
+            logoutUser()
+            }
+            return Promise.reject(error)
+        }
+    )
 
     const displayAlert = () => {
         dispatch({type: DISPLAY_ALERT})
@@ -125,7 +147,7 @@ const AppProvider = ({children}) => {
            const { data } = await authFetch.patch('/auth/updateUser', currentUser)
             console.log(data)
         } catch (error) {
-            console.log(error.response)
+            // console.log(error.response)
         }
     }
 
