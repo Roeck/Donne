@@ -14,7 +14,8 @@ import {
     LOGOUT_USER,
     UPDATE_USER_BEGIN,
     UPDATE_USER_SUCCESS,
-    UPDATE_USER_ERROR
+    UPDATE_USER_ERROR,
+    HANDLE_CHANGE
  } from './actions'
 
 import reducer from './reducer'
@@ -174,6 +175,10 @@ const AppProvider = ({children}) => {
         clearAlert()
     }
 
+    const handleChange = ({ name, value }) => {
+        dispatch({ type: HANDLE_CHANGE, payload: { name, value } })
+    }
+
     return (
         <AppContext.Provider 
             value={{
@@ -183,7 +188,8 @@ const AppProvider = ({children}) => {
                 loginUser,
                 toggleSidebar,
                 logoutUser,
-                updateUser
+                updateUser,
+                handleChange
             }}>
             {children}
         </AppContext.Provider>
