@@ -1,5 +1,5 @@
 const JobInfo = () => {
-  return <h1>Job Info Coontainer</h1>
+  return <h4>Job Info Container</h4>
 }
 
 export default JobInfo

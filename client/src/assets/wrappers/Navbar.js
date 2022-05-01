@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.nav`
-color: white;
+  color: white;
   background: #0f0e136e;
   height: var(--nav-height);
   display: flex;

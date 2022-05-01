@@ -12,7 +12,7 @@ const JobsContainer = () => {
     page,
     totalJobs,
   } = useAppContext()
-  
+
   useEffect(() => {
     getJobs()
   }, [page])
@@ -30,9 +30,9 @@ const JobsContainer = () => {
 
   return (
     <Wrapper>
-      <h5>
-        {totalJobs} job{jobs.length > 1 && 's'} found
-      </h5>
+      <h1>
+        {totalJobs} Job{jobs.length > 1 && 's'} Found
+      </h1>
       <div className='jobs'>
         {jobs.map((job) => {
           return <Job key={job._id} {...job} />

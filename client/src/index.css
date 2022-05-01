@@ -83,6 +83,10 @@ body {
   padding: 20px 40px;
 }
 
+h1 {
+  color: white;
+}
+
 /* BUTTON */
 .btn {
   cursor: pointer;
