@@ -35,6 +35,7 @@ const updateJob = async (req, res) => {
     if (!job) {
       throw new NotFoundError(`No job with id :${jobId}`)
     }
+    
     // check permissions
   
     checkPermissions(req.user, job.createdBy)
