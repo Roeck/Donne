@@ -14,7 +14,7 @@ html {
 :root {
   /* colors */
   --primary-50: #a6a1ff;
-  --primary-100: #736deb;
+  --primary-100: #736deb82;
   --primary-200: #6059e2;
   --primary-300: #5049dc;
   --primary-400: #4037D6;
@@ -40,7 +40,7 @@ html {
   --black: #000000b3;
   --white: #fff;
   --red-light: #e13543;
-  --red-dark: #842029;
+  --red-dark: #8420286d;
   --green-light: #4be19d;
   --green-dark: #0f5132;
 

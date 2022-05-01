@@ -42,16 +42,16 @@ color: white;
     }
   }
   .pending {
-    background: #fcefc7;
+    background: #d6cc5f57;
     color: #e9b949;
   }
   .interview {
-    background: #e0e8f9;
-    color: #647acb;
+    background: var(--primary-100);
+    color: var(--primary-700);
   }
   .declined {
     color: #d66a6a;
-    background: #ffeeee;
+    background: var(--red-dark);
   }
   .content {
     padding: 1rem 1.5rem;
