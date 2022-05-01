@@ -7,6 +7,7 @@ import SmallSidebar from "./SmallSidebar";
 import FormRowSelect from "./FormRowSelect";
 import JobsContainer from "./JobsContainer";
 import SearchContainer from "./SearchContainer";
+import Loading from "./Loading";
 
 export { 
     Logo,
@@ -17,5 +18,6 @@ export {
     SmallSidebar,
     FormRowSelect,
     SearchContainer,
-    JobsContainer 
+    JobsContainer,
+    Loading
 } 

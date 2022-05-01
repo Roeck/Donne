@@ -248,7 +248,8 @@ const AppProvider = ({children}) => {
                 updateUser,
                 handleChange,
                 clearValues,
-                createJob
+                createJob,
+                getJobs
             }}>
             {children}
         </AppContext.Provider>

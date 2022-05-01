@@ -193,3 +193,16 @@ body {
   transition: 0.5s;
   cursor: pointer;
 }
+
+/* LOADER */
+.loading {
+  width: 6rem;
+  height: 6rem;
+  border: 5px solid var(--grey-400);
+  border-radius: 50%;
+  border-top-color: var(--primary-500);
+  animation: spinner 2s linear infinite;
+}
+.loading-center {
+  margin: 0 auto;
+}
