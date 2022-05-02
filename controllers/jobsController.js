@@ -74,7 +74,11 @@ const showStats = async (req, res) => {
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
     { $group: { _id: '$status', count: { $sum: 1 } } }
   ])
-  res.status(StatusCodes.OK).json({ stats })
+  stats = stats.reduce((acc, curr) => {
+    const { _id: title, count } = curr
+    acc[title] = count
+    return acc
+  }, {})
 }
 
 export { createJob, getAllJobs, updateJob, deleteJob, showStats }
