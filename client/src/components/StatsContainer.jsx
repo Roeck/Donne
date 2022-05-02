@@ -1,7 +1,7 @@
 import { useAppContext } from '../contexts/appContext'
 import StatItem from './StatItem'
 import { FaSuitcaseRolling, FaCalendarCheck, FaBug } from 'react-icons/fa'
-// import Wrapper from '../assets/wrappers/StatsContainer'
+import Wrapper from '../assets/wrappers/StatsContainer'
 
 const StatsContainer = () => {
   const { stats } = useAppContext()
@@ -31,11 +31,11 @@ const StatsContainer = () => {
   ]
 
   return (
-    <div>
+    <Wrapper>
       {defaultStats.map((item, index) => {
         return <StatItem key={index} {...item} />
       })}
-    </div>
+    </Wrapper>
   )
 }
 
