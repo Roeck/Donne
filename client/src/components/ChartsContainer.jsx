@@ -1,11 +1,18 @@
 import React from 'react'
 
-const ChartContainer = () => {
+import BarChart from './BarChart'
+import AreaChart from './AreaChart'
+import { useAppContext } from '../contexts/appContext'
+
+const ChartsContainer = () => {
+  const { monthlyApplications: data } = useAppContext()
   return (
-    <div>
-      <h1>Chart container</h1>
-    </div>
+    <>
+      <h4>Monthly Applications</h4>
+      <BarChart data={data} />
+      <AreaChart data={data} />
+    </>
   )
 }
 
-export default ChartContainer
+export default ChartsContainer
