@@ -9,7 +9,9 @@
 
 html {
   font-size: 100%;
-} /*16px*/
+}
+
+/*16px*/
 
 :root {
   /* colors */
@@ -35,7 +37,7 @@ html {
   --grey-700: #334e68;
   --grey-800: #243b53;
   --grey-900: #102a43;
-  
+
   /* rest of the colors */
   --black: #000000b3;
   --white: #fff;
@@ -73,7 +75,8 @@ html {
 body {
   background: var(--backgroundColor);
   font-family: var(--bodyFont);
-  font-weight: 400;background-color: #AFAEFF;
+  font-weight: 400;
+  background-color: #AFAEFF;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%235913eb'/%3E%3Cstop offset='1' stop-color='%235913eb' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%237184ff'/%3E%3Cstop offset='1' stop-color='%237184ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%232c0fb2'/%3E%3Cstop offset='1' stop-color='%232c0fb2' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23AFAEFF'/%3E%3Cstop offset='1' stop-color='%23AFAEFF' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%232F0C43'/%3E%3Cstop offset='1' stop-color='%232F0C43' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23336CFF'/%3E%3Cstop offset='1' stop-color='%23336CFF' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
   background-attachment: fixed;
   background-size: cover;
@@ -128,9 +131,11 @@ h1 {
   margin: 3rem auto;
   transition: var(--transition);
 }
+
 .form:hover {
   box-shadow: var(--shadow-4);
 }
+
 .form-label {
   display: block;
   font-size: var(--smallText);
@@ -138,6 +143,7 @@ h1 {
   text-transform: capitalize;
   letter-spacing: var(--letterSpacing);
 }
+
 .form-input,
 .form-textarea,
 .form-select {
@@ -147,11 +153,13 @@ h1 {
   background: var(--backgroundColor);
   border: 1px solid var(--grey-200);
 }
+
 .form-input,
 .form-select,
 .btn-block {
   height: 35px;
 }
+
 .form-row {
   margin-bottom: 1rem;
 }
@@ -174,10 +182,11 @@ h1 {
 
 @keyframes fadeOut {
   0% {
-    opacity:1;
+    opacity: 1;
   }
+
   100% {
-    opacity:0;
+    opacity: 0;
   }
 }
 
@@ -189,9 +198,10 @@ h1 {
   transition: 0.5s;
   cursor: pointer;
 }
+
 .alert-success {
   border: 1px solid var(--green-dark);
-  background-color:  var(--green-dark);
+  background-color: var(--green-dark);
   color: var(--green-light);
   text-shadow: 2px 1px #00040a;
   transition: 0.5s;
@@ -207,6 +217,7 @@ h1 {
   border-top-color: var(--primary-500);
   animation: spinner 2s linear infinite;
 }
+
 .loading-center {
   margin: 0 auto;
 }
