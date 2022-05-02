@@ -55,9 +55,9 @@ const Wrapper = styled.nav`
     visibility: visible;
   }
   .dropdown-btn {
-    background: transparent;
+    background: #736deb82;
     border-color: transparent;
-    color: var(--primary-500);
+    color: var(--white);
     letter-spacing: var(--letterSpacing);
     text-transform: capitalize;
     cursor: pointer;
