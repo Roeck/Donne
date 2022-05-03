@@ -33,6 +33,8 @@ import {
 import { initialState } from "./appContext"
 
 const reducer = (state, action) => {
+
+    // DISPLAY ALERT
     if (action.type === DISPLAY_ALERT) {
         return {
             ...state,
@@ -41,6 +43,8 @@ const reducer = (state, action) => {
             alertText: 'Please, provide all values'
         }
     }
+
+    // CLEAR ALERT
     if (action.type === CLEAR_ALERT) {
         return {
             ...state,
@@ -49,10 +53,13 @@ const reducer = (state, action) => {
             alertText: ''
         }
     }
+
+    // REGISTER USER BEGIN
     if (action.type === REGISTER_USER_BEGIN) {
         return { ...state, isLoading: true }
     }
 
+    // REGISTER USER SUCCESS
     if (action.type === REGISTER_USER_SUCCESS) {
         return {
             ...state,
@@ -67,6 +74,7 @@ const reducer = (state, action) => {
         }
     }
 
+    // REGISTER USER ERROR
     if (action.type === REGISTER_USER_ERROR) {
         return {
             ...state,
@@ -77,10 +85,12 @@ const reducer = (state, action) => {
         }
     }
 
+    // LOGIN USER BEGIN
     if (action.type === LOGIN_USER_BEGIN) {
         return { ...state, isLoading: true }
     }
 
+    // LOGIN USER SUCCESS
     if (action.type === LOGIN_USER_SUCCESS) {
         return {
             ...state,
@@ -95,6 +105,7 @@ const reducer = (state, action) => {
         }
     }
 
+    // LOGIN USER ERROR
     if (action.type === LOGIN_USER_ERROR) {
         return {
             ...state,
@@ -105,6 +116,7 @@ const reducer = (state, action) => {
         }
     }
 
+    // TOGGLE SIDEBAR
     if (action.type === TOGGLE_SIDEBAR) {
         return {
             ...state,
@@ -112,6 +124,7 @@ const reducer = (state, action) => {
         }
     }
 
+    // LOGOUT USER
     if (action.type === LOGOUT_USER) {
         return {
             ...initialState,
@@ -122,9 +135,12 @@ const reducer = (state, action) => {
         }
     }
 
+    // UPDATE USER BEGIN
     if (action.type === UPDATE_USER_BEGIN) {
         return { ...state, isLoading: true }
     }
+
+    // UPDATE USER SUCCESS
     if (action.type === UPDATE_USER_SUCCESS) {
         return {
             ...state,
@@ -138,6 +154,8 @@ const reducer = (state, action) => {
             alertText: 'User Profile Updated!',
         }
     }
+
+    // UPDATE USER ERROR
     if (action.type === UPDATE_USER_ERROR) {
         return {
             ...state,
@@ -147,6 +165,8 @@ const reducer = (state, action) => {
             alertText: action.payload.msg,
         }
     }
+
+    // HANDLE CHANGE
     if (action.type === HANDLE_CHANGE) {
         return {
             ...state,
@@ -154,6 +174,8 @@ const reducer = (state, action) => {
             [action.payload.name]: action.payload.value
         }
     }
+
+    // CLEAR VALUES
     if (action.type === CLEAR_VALUES) {
         const initialState = {
             isEditing: false,

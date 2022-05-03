@@ -1,13 +1,12 @@
 import Wrapper from '../assets/wrappers/Navbar'
 import { FaAlignLeft, FaUserCircle, FaCaretDown } from 'react-icons/fa'
 import { useAppContext } from '../contexts/appContext'
-import Logo from './Logo'
 import { useState } from 'react'
 
 const Navbar = () => {
   const [showLogout, setShowLogout] = useState(false)
   const { toggleSidebar, logoutUser, user } = useAppContext()
-  
+
   return (
     <Wrapper>
       <div className='nav-center'>
@@ -15,7 +14,6 @@ const Navbar = () => {
           <FaAlignLeft />
         </button>
         <div>
-          <Logo />
           <h1 className='logo-text'>Dashboard</h1>
         </div>
         <div className='btn-container'>
