@@ -1,6 +1,6 @@
 import { useAppContext } from '../contexts/appContext'
 import { useEffect } from 'react'
-import Loading from './Loading'
+// import Loading from './Loading'
 import Job from './Job'
 import Wrapper from '../assets/wrappers/JobsContainer'
 
@@ -8,22 +8,26 @@ const JobsContainer = () => {
   const {
     getJobs,
     jobs,
-    isLoading,
+    // isLoading,
     page,
     totalJobs,
+    search,
+    searchStatus,
+    searchType,
+    sort
   } = useAppContext()
 
   useEffect(() => {
     getJobs()
-  }, [page])
-  if (isLoading) {
-    return <Loading center />
-  }
+  }, [page, search, searchStatus, searchType, sort])
+  // if (isLoading) {
+  //   return <Loading center />
+  // }
 
   if (jobs.length === 0) {
     return (
       <Wrapper>
-        <h1>No jobs to display...</h1>
+        <h2>No jobs to display...</h2>
       </Wrapper>
     )
   }

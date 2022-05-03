@@ -1,4 +1,4 @@
-import { 
+import {
     DISPLAY_ALERT,
     CLEAR_ALERT,
     REGISTER_USER_BEGIN,
@@ -25,8 +25,9 @@ import {
     EDIT_JOB_SUCCESS,
     EDIT_JOB_ERROR,
     SHOW_STATS_BEGIN,
-    SHOW_STATS_SUCCESS
- } from "./actions"
+    SHOW_STATS_SUCCESS,
+    CLEAR_FILTERS
+} from "./actions"
 
 import { initialState } from "./appContext"
 
@@ -122,117 +123,123 @@ const reducer = (state, action) => {
 
     if (action.type === UPDATE_USER_BEGIN) {
         return { ...state, isLoading: true }
-      }
-      if (action.type === UPDATE_USER_SUCCESS) {
+    }
+    if (action.type === UPDATE_USER_SUCCESS) {
         return {
-          ...state,
-          isLoading: false,
-          token: action.payload.token,
-          user: action.payload.user,
-          userLocation: action.payload.location,
-          jobLocation: action.payload.location,
-          showAlert: true,
-          alertType: 'success',
-          alertText: 'User Profile Updated!',
+            ...state,
+            isLoading: false,
+            token: action.payload.token,
+            user: action.payload.user,
+            userLocation: action.payload.location,
+            jobLocation: action.payload.location,
+            showAlert: true,
+            alertType: 'success',
+            alertText: 'User Profile Updated!',
         }
-      }
-      if (action.type === UPDATE_USER_ERROR) {
+    }
+    if (action.type === UPDATE_USER_ERROR) {
         return {
-          ...state,
-          isLoading: false,
-          showAlert: true,
-          alertType: 'danger',
-          alertText: action.payload.msg,
+            ...state,
+            isLoading: false,
+            showAlert: true,
+            alertType: 'danger',
+            alertText: action.payload.msg,
         }
-      }
-      if (action.type === HANDLE_CHANGE) {
+    }
+    if (action.type === HANDLE_CHANGE) {
         return {
-          ...state,
-         [action.payload.name]:action.payload.value
+            ...state,
+            [action.payload.name]: action.payload.value
         }
-      }
-      if (action.type === CLEAR_VALUES) {
+    }
+    if (action.type === CLEAR_VALUES) {
         const initialState = {
-          isEditing: false,
-          editJobId: '',
-          position: '',
-          company: '',
-          jobLocation: state.userLocation,
-          jobType: 'full-time',
-          status: 'pending',
+            isEditing: false,
+            editJobId: '',
+            position: '',
+            company: '',
+            jobLocation: state.userLocation,
+            jobType: 'full-time',
+            status: 'pending',
         }
-    
-        return {
-          ...state,
-          ...initialState,
-        }
-      }
 
-      if (action.type === CREATE_JOB_BEGIN) {
-          return {...state, isLoading: true}
-      }
-      if (action.type === CREATE_JOB_SUCCESS) {
         return {
-            ...state, 
+            ...state,
+            ...initialState,
+        }
+    }
+
+    // CREATE JOB BEGIN
+    if (action.type === CREATE_JOB_BEGIN) {
+        return { ...state, isLoading: true }
+    }
+
+    // CREATE JOB SUCCESS
+    if (action.type === CREATE_JOB_SUCCESS) {
+        return {
+            ...state,
             isLoading: false,
             showAlert: true,
             alertType: 'success',
             alertText: 'New Job Created!'
         }
-      } 
-      if (action.type === CREATE_JOB_ERROR) {
+    }
+
+    // CREATE JOB ERROR 
+    if (action.type === CREATE_JOB_ERROR) {
         return {
-            ...state, 
+            ...state,
             isLoading: false,
             showAlert: true,
             alertType: 'danger',
             alertText: action.payload.msg
         }
     }
+
+    // GET JOBS BEGIN
     if (action.type === GET_JOBS_BEGIN) {
         return { ...state, isLoading: true, showAlert: false }
     }
+
+    // GET JOBS SUCCESS
     if (action.type === GET_JOBS_SUCCESS) {
-        return { ...state, isLoading: false,
-             jobs: action.payload.jobs,
-             totalJobs: action.payload.totalJobs,
-             numOfPages: action.payload.numOfPages
+        return {
+            ...state, isLoading: false,
+            jobs: action.payload.jobs,
+            totalJobs: action.payload.totalJobs,
+            numOfPages: action.payload.numOfPages
         }
     }
 
     // SET EDIT JOB
-
     if (action.type === SET_EDIT_JOB) {
         const job = state.jobs.find((job) => job._id === action.payload.id)
         const { _id, position, company, jobLocation, jobType, status } = job
         return {
-          ...state,
-          isEditing: true,
-          editJobId: _id,
-          position,
-          company,
-          jobLocation,
-          jobType,
-          status,
+            ...state,
+            isEditing: true,
+            editJobId: _id,
+            position,
+            company,
+            jobLocation,
+            jobType,
+            status,
         }
     }
 
     // DELETE JOB
-
     if (action.type === DELETE_JOB_BEGIN) {
         return { ...state, isLoading: true }
     }
 
     // EDIT JOB BEGIN
-
     if (action.type === EDIT_JOB_BEGIN) {
         return { ...state, isLoading: true }
     }
-    
-    // EDIT JOB SUCCESS
 
+    // EDIT JOB SUCCESS
     if (action.type === EDIT_JOB_SUCCESS) {
-        return { 
+        return {
             ...state,
             isLoading: false,
             showAlert: 'true',
@@ -242,9 +249,8 @@ const reducer = (state, action) => {
     }
 
     // EDIT JOB ERROR 
-
     if (action.type === EDIT_JOB_ERROR) {
-        return { 
+        return {
             ...state,
             isLoading: false,
             showAlert: true,
@@ -254,23 +260,32 @@ const reducer = (state, action) => {
     }
 
     // SHOW STATS BEGIN
-
     if (action.type === SHOW_STATS_BEGIN) {
-        return { 
+        return {
             ...state,
-             isLoading: true,
+            isLoading: true,
             showAlert: false
-         }
+        }
     }
-    
-    // SHOW STATS SUCCESS
 
+    // SHOW STATS SUCCESS
     if (action.type === SHOW_STATS_SUCCESS) {
-        return { 
+        return {
             ...state,
             isLoading: false,
             stats: action.payload.stats,
             monthlyApplications: action.payload.monthlyApplications
+        }
+    }
+
+    // CLEAR FILTERS 
+    if (action.type === CLEAR_FILTERS) {
+        return {
+            ...state,
+            search: '',
+            searchStatus: 'all',
+            searchType: 'all',
+            sort: 'latest',
         }
     }
 

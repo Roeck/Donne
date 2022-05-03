@@ -43,7 +43,7 @@ const AddJob = () => {
   return (
     <Wrapper>
       <form className='form'>
-        <h1>{isEditing ? 'Edit Job' : 'Add Job'}</h1>
+        <h1>{isEditing ? 'edit job' : 'Add Job'}</h1>
         {showAlert && <Alert />}
         <div className='form-center'>
           {/* position */}

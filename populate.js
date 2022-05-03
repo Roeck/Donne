@@ -10,7 +10,7 @@ const start = async () => {
   try {
     await connectDB(process.env.MONGO_URL)
     await Job.deleteMany()
-    
+
     const jsonProducts = JSON.parse(
       await readFile(new URL('./mock-data.json', import.meta.url))
     )

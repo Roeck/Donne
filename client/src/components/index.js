@@ -12,7 +12,7 @@ import StatsContainer from "./StatsContainer";
 import StatItem from "./StatItem";
 import ChartsContainer from "./ChartsContainer";
 
-export { 
+export {
     Logo,
     FormRow,
     Alert,
@@ -23,7 +23,7 @@ export {
     SearchContainer,
     JobsContainer,
     Loading,
-    StatItem,   
+    StatItem,
     StatsContainer,
     ChartsContainer
 } 
