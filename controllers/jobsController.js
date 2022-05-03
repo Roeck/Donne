@@ -24,11 +24,6 @@ const createJob = async (req, res) => {
 
 // GET ALL JOBS 
 const getAllJobs = async (req, res) => {
-  const jobs = await Job.find({ createdBy: req.user.userId })
-  res
-    .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 })
-
   const { status, jobType, sort, search } = req.query
 
   const queryObject = {
@@ -67,6 +62,8 @@ const getAllJobs = async (req, res) => {
   if (sort === 'z-a') {
     result = result.sort('-position')
   }
+
+  const jobs = await result
 
   res
     .status(StatusCodes.OK)
