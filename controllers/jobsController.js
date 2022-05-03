@@ -23,47 +23,57 @@ const createJob = async (req, res) => {
 }
 
 // GET ALL JOBS 
-
 const getAllJobs = async (req, res) => {
   const jobs = await Job.find({ createdBy: req.user.userId })
   res
     .status(StatusCodes.OK)
     .json({ jobs, totalJobs: jobs.length, numOfPages: 1 })
 
-  // Add options based on condition
+  const { status, jobType, sort, search } = req.query
 
+  const queryObject = {
+    createdBy: req.user.userId
+  }
+
+  // Add functionalities based on condition
   if (status && status !== 'all') {
     queryObject.status = status
   }
+
   if (jobType && jobType !== 'all') {
     queryObject.jobType = jobType
   }
+
   if (search) {
     queryObject.position = { $regex: search, $options: 'i' }
   }
 
   // NO AWAIT
-
   let result = Job.find(queryObject)
 
   // Chain sort conditions
-
   if (sort === 'latest') {
     result = result.sort('-createdAt')
   }
+
   if (sort === 'oldest') {
     result = result.sort('createdAt')
   }
+
   if (sort === 'a-z') {
     result = result.sort('position')
   }
+
   if (sort === 'z-a') {
     result = result.sort('-position')
   }
+
+  res
+    .status(StatusCodes.OK)
+    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 })
 }
 
 // UPDATE JOB
-
 const updateJob = async (req, res) => {
   const { id: jobId } = req.params
   const { company, position } = req.body
@@ -119,6 +129,7 @@ const showStats = async (req, res) => {
     acc[title] = count
     return acc
   }, {})
+
 
   const defaultStats = {
     pending: stats.pending || 0,

@@ -4,6 +4,7 @@ import Wrapper from '../assets/wrappers/SearchContainer'
 
 const SearchContainer = () => {
   const {
+    isLoading,
     search,
     searchStatus,
     searchType,
@@ -16,9 +17,10 @@ const SearchContainer = () => {
   } = useAppContext()
 
   const handleSearch = (e) => {
-    // if (isLoading) return
+    if (isLoading) return
     handleChange({ name: e.target.name, value: e.target.value })
   }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     clearFilters()

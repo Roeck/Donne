@@ -125,6 +125,7 @@ const AppProvider = ({ children }) => {
         localStorage.removeItem('location')
     }
 
+    // REGISTER USER
     const registerUser = async (currentUser) => {
         dispatch({ type: REGISTER_USER_BEGIN })
         try {
@@ -144,6 +145,7 @@ const AppProvider = ({ children }) => {
         clearAlert()
     }
 
+    // LOGIN USER
     const loginUser = async (currentUser) => {
         dispatch({ type: LOGIN_USER_BEGIN })
         try {
@@ -167,10 +169,13 @@ const AppProvider = ({ children }) => {
         dispatch({ type: TOGGLE_SIDEBAR })
     }
 
+    // LOGOUT USER
     const logoutUser = () => {
         dispatch({ type: LOGOUT_USER })
         removeUserFromLocalStorage()
     }
+
+    // UPDATE USER
     const updateUser = async (currentUser) => {
         dispatch({ type: UPDATE_USER_BEGIN })
         try {
@@ -202,7 +207,6 @@ const AppProvider = ({ children }) => {
     }
 
     // CREATE JOB 
-
     const createJob = async () => {
         dispatch({ type: CREATE_JOB_BEGIN })
         try {
@@ -227,11 +231,10 @@ const AppProvider = ({ children }) => {
     }
 
     // GET JOBS
-
     const getJobs = async () => {
-        const { page, search, searchStatus, searchType, sort } = state
+        const { search, searchStatus, searchType, sort } = state
 
-        let url = `/jobs?page=${page}&status=${searchStatus}&jobType=${searchType}&sort=${sort}`
+        let url = `/jobs?status=${searchStatus}&jobType=${searchType}&sort=${sort}`
         if (search) {
             url = url + `&search=${search}`
         }
@@ -249,11 +252,12 @@ const AppProvider = ({ children }) => {
                 },
             })
         } catch (error) {
-            logoutUser()
+            console.log('error')
         }
         clearAlert()
     }
 
+    // EDIT JOB
     const setEditJob = (id) => {
         dispatch({ type: SET_EDIT_JOB, payload: { id } })
     }
@@ -280,6 +284,8 @@ const AppProvider = ({ children }) => {
         }
         clearAlert()
     }
+
+    // DELETE JOB
     const deleteJob = async (jobId) => {
         dispatch({ type: DELETE_JOB_BEGIN })
         try {
