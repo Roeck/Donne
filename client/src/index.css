@@ -19,8 +19,8 @@ html {
   --primary-100: #736deb82;
   --primary-200: #6059e2;
   --primary-300: #5049dc;
-  --primary-400: #4037D6;
-  --primary-500: #3932c0;
+  --primary-400: #5437d6;
+  --primary-500: #43299b;
   --primary-600: #2c279e;
   --primary-700: #241f7f;
   --primary-800: #1c1869;
@@ -86,7 +86,8 @@ body {
   padding: 20px 40px;
 }
 
-h1 {
+h1,
+h2 {
   color: white;
 }
 
@@ -220,4 +221,10 @@ h1 {
 
 .loading-center {
   margin: 0 auto;
+}
+
+.logo {
+  width: 150px;
+  margin-top: 20px;
+  margin-left: -200px;
 }

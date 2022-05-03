@@ -73,7 +73,7 @@ const Wrapper = styled.nav`
       width: 90%;
     }
     .logo {
-      display: none;
+      display: flex;
     }
     .logo-text {
       display: block;
