@@ -31,6 +31,11 @@ const getAllJobs = async (req, res) => {
     queryObject.status = status
   }
 
+  if (jobType && jobType !== 'all') {
+    queryObject.jobType = jobType
+  }
+
+
   // NO AWAIT
 
   let result = Job.find(queryObject)
