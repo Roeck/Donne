@@ -11,6 +11,7 @@ import Loading from "./Loading";
 import StatsContainer from "./StatsContainer";
 import StatItem from "./StatItem";
 import ChartsContainer from "./ChartsContainer";
+import PageBtnContainer from "./PageBtnContainer";
 
 export {
     Logo,
@@ -25,5 +26,6 @@ export {
     Loading,
     StatItem,
     StatsContainer,
-    ChartsContainer
+    ChartsContainer,
+    PageBtnContainer
 } 
