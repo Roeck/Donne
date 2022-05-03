@@ -1,5 +1,6 @@
 import { useAppContext } from '../contexts/appContext'
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi'
+import Wrapper from '../assets/wrappers/PageBtnContainer'
 
 const PageBtnContainer = () => {
     const { numOfPages, page, changePage } = useAppContext()
@@ -22,8 +23,7 @@ const PageBtnContainer = () => {
         changePage(newPage)
     }
     return (
-        // <Wrapper>
-        <>
+        <Wrapper>
             <button className='prev-btn' onClick={prevPage}>
                 <HiChevronDoubleLeft />
                 prev
@@ -46,7 +46,7 @@ const PageBtnContainer = () => {
                 next
                 <HiChevronDoubleRight />
             </button>
-        </>
+        </Wrapper>
     )
 }
 
