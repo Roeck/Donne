@@ -210,6 +210,12 @@ h2 {
 }
 
 /* LOADER */
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .loading {
   width: 6rem;
   height: 6rem;

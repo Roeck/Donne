@@ -38,7 +38,7 @@ const Wrapper = styled.section`
   .member-btn {
     background: transparent;
     border: transparent;
-    color: var(--primary-100);
+    color: var(--white);
     /* color: white; */
     cursor: pointer;
     letter-spacing: var(--letterSpacing);
