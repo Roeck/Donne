@@ -15,7 +15,8 @@ const Landing = () => {
         <div className='info'>
           <h1>
             <br />
-            <h2>Explore, track and create jobs from <span>anywhere!</span></h2>
+            <h2>JOB HUNTING <br></br>
+              <span>DONNE</span> RIGHT!</h2>
           </h1>
           <Link to='/register' className='btn btn-hero'>
             Login/Register
