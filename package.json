@@ -16,9 +16,6 @@
     "validator": "^13.7.0",
     "xss-clean": "^0.1.1"
   },
-  "engines": {
-    "node": "18.12.1"
-  },
   "name": "donne",
   "version": "1.0.0",
   "main": "index.js",
