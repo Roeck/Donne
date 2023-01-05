@@ -11,7 +11,7 @@ const NavLinks = ({ toggleSidebar }) => {
           <NavLink
             to={path}
             key={id}
-            onClick={toggleSidebar}
+            // onClick={toggleSidebar}
             className={({ isActive }) =>
               isActive ? 'nav-link active' : 'nav-link'
             }
